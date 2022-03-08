@@ -10,11 +10,27 @@ const writeFile = util.promisify(fs.writeFile);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(express.static("./Develop/public"));
+
 app.get("/api/notes", function (req, res) {
   readFile("./Develop/db/db.json", "utf8").then(function (data) {
     notes = [].concat(JSON.parse(data));
     res.json(notes);
   });
+});
+
+app.post("api/notes", (req, res) => {
+  const note = req.body;
+  readFile("./Develop/db/db.json", "utf8")
+    .then(function (data) {
+      const notes = [].concat(JSON.parse(data));
+      note.id = notes.length + 1;
+      notes.push(note);
+    })
+    .then(function (notes) {
+      writeFile("./Develop/db/db.json", JSON.stringify(notes));
+      res.json(note);
+    });
 });
 
 app.listen(PORT, function () {
