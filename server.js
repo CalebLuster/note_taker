@@ -33,6 +33,10 @@ app.post("api/notes", (req, res) => {
     });
 });
 
+app.get('/notes', function (req, res) {
+  res.sendFile(path.join(__dirname, './Develop/public/notes.html'))
+})
+
 app.listen(PORT, function () {
   console.log(`Live server launched on PORT ${PORT}!`);
 });
