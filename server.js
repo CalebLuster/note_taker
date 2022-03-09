@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const util = require("util");
 const app = express();
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 8000;
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
@@ -33,9 +33,17 @@ app.post("api/notes", (req, res) => {
     });
 });
 
-app.get('/notes', function (req, res) {
-  res.sendFile(path.join(__dirname, './Develop/public/notes.html'))
-})
+app.get("/notes", function (req, res) {
+  res.sendFile(path.join(__dirname, "./Develop/public/notes.html"));
+});
+
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
+});
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
+});
 
 app.listen(PORT, function () {
   console.log(`Live server launched on PORT ${PORT}!`);
