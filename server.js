@@ -17,7 +17,7 @@ app.use("/", html);
 // const readFile = util.promisify(fs.readFile);
 // const writeFile = util.promisify(fs.writeFile);
 
-// const path = require("path");
+// 
 // const fs = require("fs");
 // const util = require("util");
 
@@ -43,14 +43,3 @@ app.use("/", html);
 //     });
 // });
 
-// app.get("/notes", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./Develop/public/notes.html"));
-// });
-
-// app.get("/", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
-// });
-
-// app.get("*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
-// });
