@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8000;
+const api = require("./serverRoutes/api");
+const html = require("./serverRoutes/html");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -10,6 +12,8 @@ app.listen(PORT, function () {
   console.log(`Live server launched on PORT ${PORT}!`);
 });
 
+app.use("/api", api);
+app.use("/", html);
 // const readFile = util.promisify(fs.readFile);
 // const writeFile = util.promisify(fs.writeFile);
 
