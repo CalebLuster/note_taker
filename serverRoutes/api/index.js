@@ -14,4 +14,10 @@ router.post("/notes", (req, res) => {
   res.json(formNote);
 });
 
+router.delete("/notes/:id", (req, res) => {
+  const boundry = req.params.id;
+  db(boundry, notes);
+  res.redirect("");
+});
+
 module.exports = router;

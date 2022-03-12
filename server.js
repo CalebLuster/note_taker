@@ -6,18 +6,19 @@ const html = require("./serverRoutes/html");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("./Develop/public"));
+app.use(express.static("./public"));
+
+app.use("/api", api);
+app.use("/", html);
 
 app.listen(PORT, function () {
   console.log(`Live server launched on PORT ${PORT}!`);
 });
 
-app.use("/api", api);
-app.use("/", html);
 // const readFile = util.promisify(fs.readFile);
 // const writeFile = util.promisify(fs.writeFile);
 
-// 
+//
 // const fs = require("fs");
 // const util = require("util");
 
@@ -42,4 +43,3 @@ app.use("/", html);
 //       res.json(note);
 //     });
 // });
-
