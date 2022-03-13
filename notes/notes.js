@@ -1,5 +1,10 @@
+// consts to make app run
 const fs = require("fs");
 const path = require("path");
+
+// ////////////////////////////
+// function to throw error if it is not working and to continue to make new notes
+// ////////////////////////////
 
 function db(id, notesArray) {
   const trashBin = id;
@@ -19,6 +24,10 @@ function db(id, notesArray) {
   }
 }
 
+// ////////////////////////////
+// function that pushes notes to database and allows the information to be displayed
+// ////////////////////////////
+
 function newNote(body, notesArray) {
   const formNote = body;
   notesArray.push(formNote);
@@ -29,4 +38,5 @@ function newNote(body, notesArray) {
   return formNote;
 }
 
+// export to make app function
 module.exports = { db, newNote };

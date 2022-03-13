@@ -1,3 +1,4 @@
+// The apps required resources to make the app run
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -10,36 +11,10 @@ app.use(express.static("./public"));
 
 app.use("/api", api);
 app.use("/", html);
+// ////////////////////////////
+// The live server launching function letting user know server was launched on PORT
+// ////////////////////////////
 
 app.listen(PORT, function () {
   console.log(`Live server launched on PORT ${PORT}!`);
 });
-
-// const readFile = util.promisify(fs.readFile);
-// const writeFile = util.promisify(fs.writeFile);
-
-//
-// const fs = require("fs");
-// const util = require("util");
-
-// app.get("/api/notes", function (req, res) {
-//   readFile("./Develop/db/db.json", "utf8").then(function (data) {
-//     notes = [].concat(JSON.parse(data));
-//     res.json(notes);
-//   });
-// });
-
-// app.post("api/notes", function (req, res) {
-//   const note = req.body;
-//   readFile("./Develop/db/db.json", "utf8")
-//     .then(function (data) {
-//       const notes = [].concat(JSON.parse(data));
-//       note.id = notes.length + 1;
-//       notes.push(note);
-//       return notes;
-//     })
-//     .then(function (notes) {
-//       writeFile("./Develop/db/db.json", JSON.stringify(notes));
-//       res.json(note);
-//     });
-// });
