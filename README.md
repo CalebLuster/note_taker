@@ -18,6 +18,18 @@ This is my note taker app! You can use this app for many things like taking and 
     WHEN I click on the Write icon in the navigation at the top of the page
     THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 
+# Installation
+
+To install simply run these commands
+
+    npm i
+    npm i uuid
+    npm i express
+
+To launch to local host run this command
+
+    node server
+
 Screenshot: ![Screenshot 30](<public/assets/images/Screenshot%20(30).png>)
 
 Link to deployed app: https://calebluster.github.io/note_taker/
